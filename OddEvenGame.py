@@ -1,4 +1,18 @@
 import random
+def reset():
+    input(print("Deseas jugar nuevamente?\n1.Si\nPresiona cualquier tecla para salir."))
+    if reset == 1:
+        player_lives = 3
+        machine_lives = 3
+        player_choice = 0
+        apuesta = 0
+        par = 0
+        open_game = True
+        return open_game, player_lives, player_choice, machine_lives, apuesta, par
+    else:
+        open_game = False
+        return open_game
+
 def checkParImpar(numero):
     x = int(numero) #Casting into integer
     x%=2 #Checking if it's odd or even
@@ -49,15 +63,6 @@ while open_game == True:
             print("Perdiste... lo siento.")
     elif machine_lives <=0:
             print("GANASTE!! Felicitaciones.")
-
-    reset = input(print("Deseas jugar nuevamente?\n1.Si\nPresiona cualquier tecla para salir."))
-    if reset == 1:
-        player_lives = 3
-        machine_lives = 3
-        player_choice = 0
-        apuesta = 0
-        par = 0
-        open_game = True
     else:
         print("Hasta la próxima!")
 
