@@ -57,14 +57,17 @@ while open_game == True:
             else:
                 print("Debes ingresar un número entero.\nInténtalo nuevamente.")
         else:
-            open_game = False
+            reset()
 
     elif player_lives <= 0:
-            print("Perdiste... lo siento.")
+        print("Perdiste... lo siento.")
+        reset()
     elif machine_lives <=0:
-            print("GANASTE!! Felicitaciones.")
+        print("GANASTE!! Felicitaciones.")
+        reset()
     else:
         print("Hasta la próxima!")
+        reset()
 
 
 
