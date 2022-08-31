@@ -21,7 +21,7 @@ Your number will be added to your's adversary choosen number.
 The result number (undefined yet) will be evaluated by your bet.
 
 - Select what you want to bet:
-  1.Odd
+  1. Odd
   2. Even
 
 - Win or Lose: you can keep gambling (selecting the option 2 on the menu)
