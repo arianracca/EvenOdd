@@ -10,19 +10,21 @@ of both numbers will be Even or Odd. Each player can make a mistake 3 times befo
 
 ---
 
-1. Select on the Menu if you want:
-  1.New game
-  2.Continue the next round on your actual game
+- Select on the Menu if you want:
+  1. New game
+  2. Continue the next round on your actual game
   (if you have no actual game it will just run a new game) or
-  Exit the game (any other key).
+  0. Exit the game (any other key).
 
-2. Choose your number.
+- Choose your number.
 Your number will be added to your's adversary choosen number.
 The result number (undefined yet) will be evaluated by your bet.
 
-3. Select what you want to bet: 1.Odd | 2. Even
+- Select what you want to bet:
+  1.Odd
+  2. Even
 
-4. Win or Lose: you can keep gambling (selecting the option 2 on the menu)
+- Win or Lose: you can keep gambling (selecting the option 2 on the menu)
 until you have 3 losses (and you lose) or your opponent lose 3 times (and you WIN!!).
 If you want to reset game you can select 1 on the menu.
 If you want to exit program just press any other key while you're on the menu.
