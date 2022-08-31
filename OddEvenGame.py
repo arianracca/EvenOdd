@@ -3,13 +3,15 @@ open_game = True
 player_lives = 3
 machine_lives = 3
 
-def reset():
-    print("Deseas jugar 'Cho Han'?\n1.Sí - \nNo (Presiona cualquier tecla para salir)")
+def menu(): #Menu for Starting new game, continue a started game or exit.
+    print("Deseas jugar 'Cho Han'?\n1.Nueva Partida\n2.Continuar partida\nSalir (Cualquier tecla)")
     reset = input()
     if reset == "1":
         global player_lives, machine_lives
         player_lives = 3
         machine_lives = 3
+    elif reset == "2":
+        pass
     else:
         print("Hasta la próxima!")
         exit()
@@ -19,10 +21,10 @@ def checkParImpar(numero): #Function checks if Total number is Even or Odd
     x%=2 #Checking if it's odd or even
     if x == 0:
         par = 2
-        print("El número es par!")
+        print("El resultado es PAR!")
     else:
         par = 1
-        print("El número es impar!")
+        print("El resultado es IMPAR!")
     return par
 
 def checkApuesta(player_choice, par): #Function checks who won the bid
@@ -40,29 +42,32 @@ resultado de la suma de ambos números será Par o Impar.
 Cada jugador puede equivocarse 3 veces antes de perder.""")
 
 while open_game == True:
-    reset()
+    menu()
+
     print("Tus oportunidades: "+str(player_lives))
     print("Las del adversario: "+str(machine_lives))
 
     if (player_lives > 0) and (machine_lives > 0):
-        num1 = input("Elige un número entero para jugar.")#Player choose the number is playing
-        if num1.isdigit(): #Checking if it's an integer
+        num0 = input("Elige un número entero para jugar.\n")#Player choose the number is playing
+        if num0.isdigit(): #Checking if it's an integer
             player_choice = input("Apuesta! 1.Impar - 2.Par\n") #Player choose Even or Odd
             if player_choice == "1" or player_choice == "2":
                 machine_num = random.randint(1,100) #Machine randomize the number is playing
                 print("Tu adversario había elegido: " + str(machine_num))
-                num1 = int(machine_num) + int(num1) #Total number on play is calculated
+                num1 = int(machine_num) + int(num0) #Total number on play is calculated
+                print("ELEGISTE: "+str(num0)+"\nEL ADVERSARIO ELIGIÓ: "+str(machine_num)+"\nEL NÚMERO FINAL ES..."+str(num1))
+                par = 0
                 checkParImpar(num1) #Function checks if Total number is Even or Odd
-                checkApuesta(player_choice) #Function checks who won the bid
+                checkApuesta(player_choice, par) #Function checks who won the bid
             else:
                 print("Debes ingresar una apuesta válida.\nInténtalo nuevamente.")
         else:
             print("Debes ingresar un número entero.\nInténtalo nuevamente.")
     elif player_lives == 0:
-        print("Perdiste... lo siento.")
-        reset()
+        print("PERDISTE... lo siento.")
+        menu()
     elif machine_lives == 0:
         print("GANASTE!! Felicitaciones.")
-        reset()
+        menu()
     else:
-        reset()
+        menu()
