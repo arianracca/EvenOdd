@@ -2,6 +2,7 @@ import random
 open_game = True
 player_lives = 3
 machine_lives = 3
+par = 0
 
 def menu(): #Menu for Starting new game, continue a started game or exit.
     print("Deseas jugar 'Cho Han'?\n1.Nueva Partida\n2.Continuar partida\nSalir (Cualquier tecla)")
@@ -16,8 +17,9 @@ def menu(): #Menu for Starting new game, continue a started game or exit.
         print("Hasta la próxima!")
         exit()
 
-def checkParImpar(numero): #Function checks if Total number is Even or Odd
-    x = int(numero)
+def checkParImpar(num1): #Function checks if Total number is Even or Odd
+    global par
+    x = int(num1)
     x%=2 #Checking if it's odd or even
     if x == 0:
         par = 2
@@ -51,16 +53,14 @@ while open_game == True:
 
     if (player_lives > 0) and (machine_lives > 0):
         num0 = input("Elige un número entero para jugar.\n")#Player choose the number is playing
-        if num0.isdigit(): #Checking if it's an integer
+        if num0.isdigit(): #Checking if it's a correct integer number
             player_choice = input("Apuesta! 1.Impar - 2.Par\n") #Player choose Even or Odd
             if player_choice == "1" or player_choice == "2":
                 machine_num = random.randint(1,100) #Machine randomize the number is playing
-                print("Tu adversario había elegido: " + str(machine_num))
                 num1 = int(machine_num) + int(num0) #Total number on play is calculated
-                print("ELEGISTE: "+str(num0)+"\nEL ADVERSARIO ELIGIÓ: "+str(machine_num)+"\nEL NÚMERO FINAL ES..."+str(num1))
-                par = 0
+                print("ELEGISTE: "+str(num0)+"\nTU ADVERSARIO ELIGIÓ: "+str(machine_num)+"\nEL NÚMERO FINAL ES..."+str(num1))
                 checkParImpar(num1) #Function checks if Total number is Even or Odd
-                checkApuesta(player_choice, par) #Function checks who won the bid
+                checkApuesta(player_choice,par) #Function checks who won the bid
             else:
                 print("Debes ingresar una apuesta válida.\nInténtalo nuevamente.")
         else:
