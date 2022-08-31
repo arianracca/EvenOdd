@@ -18,8 +18,9 @@ def menu(): #Menu for Starting new game, continue a started game or exit.
     elif reset == "2":
         pass
     else:
+        global open_game
         print("Hasta la próxima!")
-        exit()
+        open_game = False
 
 def checkParImpar(num1): #Function checks if Total number is Even or Odd
     global par
@@ -31,7 +32,6 @@ def checkParImpar(num1): #Function checks if Total number is Even or Odd
     else:
         par = 1
         print("El resultado es IMPAR!")
-    return par
 
 def checkApuesta(player_choice, par): #Function checks who won the bid
     global machine_life, player_life
@@ -42,14 +42,14 @@ def checkApuesta(player_choice, par): #Function checks who won the bid
         player_life -= 1
         print("--- PERDISTE LA RONDA ---\n")
 
-print("""Bienvenido al juego 'Cho Han' digital simplificado.
+if __name__ == '__main__':
+
+    print("""Bienvenido al juego 'Cho Han' digital simplificado.
 Para esta adaptación tú elegirás un número que te guste jugar
 y tu adversario (la PC) elegirá otro número al azar entre 1 y 100.
 Tú sólo sabrás tu elección hasta que elijas si Apuestas por que el
 resultado de la suma de ambos números será Par o Impar.
 Cada jugador puede equivocarse 3 veces antes de perder.""")
-
-if __name__ == '__main__':
 
     while open_game == True:
 
