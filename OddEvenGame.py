@@ -33,10 +33,10 @@ def checkApuesta(player_choice, par): #Function checks who won the bid
     global machine_life, player_life
     if int(player_choice) == int(par):
         machine_life -= 1
-        print("--- GANASTE LA RONDA! ---")
+        print("--- GANASTE LA RONDA! ---\n")
     else:
         player_life -= 1
-        print("--- PERDISTE LA RONDA ---")
+        print("--- PERDISTE LA RONDA ---\n")
 
 print("""Bienvenido al juego 'Cho Han' digital simplificado.
 Para esta adaptación tú elegirás un número que te guste jugar
