@@ -1,7 +1,4 @@
 import random
-player_lives = 3
-machine_lives = 3
-par = 0
 open_game = True
 
 def reset():
@@ -9,7 +6,7 @@ def reset():
     if reset == "1":
         player_lives = 3
         machine_lives = 3
-        player_choice = 0
+        par = 0
     else:
         print("Hasta la próxima!")
         exit()
@@ -24,13 +21,15 @@ def checkParImpar(numero): #Function checks if Total number is Even or Odd
         par = 1
         print("El número es impar!")
 
-def checkApuesta(apuesta): #Function checks who won the bid
-    if apuesta == par:
-        machine_lives-=1
+def checkApuesta(player_choice): #Function checks who won the bid
+    if int(player_choice) == int(par):
+        machine_lives -= 1
     else:
-        player_lives-=1
+        player_lives -= 1
 
-
+player_lives = 3
+machine_lives = 3
+par = 0
 
 print("""Bienvenido al juego 'Cho Han' digital simplificado.
 Para esta adaptación tú elegirás un número que te guste jugar
